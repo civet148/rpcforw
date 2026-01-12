@@ -8,9 +8,6 @@ import (
 	"google.golang.org/grpc"
 )
 
-// RpcHandler 定义RPC方法类型
-type RpcHandler func(ctx context.Context, req any) (any, error)
-
 // Call 通用转发方法
 func Call[TFromRequest, TFromReply, TRpcReq, TRpcReply any](
 	ctx context.Context,
