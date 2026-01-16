@@ -16,4 +16,4 @@ require (
 	google.golang.org/protobuf v1.28.1 // indirect
 )
 
-replace github.com/jinzhu/copier v0.4.0 => github.com/civet148/copier v0.4.10
+replace github.com/jinzhu/copier v0.4.0 => github.com/civet148/copier v0.4.11
