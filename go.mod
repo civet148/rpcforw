@@ -3,7 +3,7 @@ module github.com/civet148/rpcforw
 go 1.22.0
 
 require (
-	github.com/jinzhu/copier v0.4.0
+	github.com/civet148/go-copier v0.4.14
 	google.golang.org/grpc v1.53.0
 )
 

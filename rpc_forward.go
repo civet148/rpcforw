@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/jinzhu/copier"
+	"github.com/civet148/go-copier"
 	"google.golang.org/grpc"
 )
 
