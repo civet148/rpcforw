@@ -13,6 +13,7 @@ func Call[TFromRequest, TFromReply, TRpcReq, TRpcReply any](
 	ctx context.Context,
 	req *TFromRequest,
 	rpcHandler func(ctx context.Context, rpcReq *TRpcReq, opts ...grpc.CallOption) (*TRpcReply, error),
+	callOptions ...grpc.CallOption,
 ) (*TFromReply, *TRpcReply, error) {
 
 	// 创建RPC请求对象
@@ -22,7 +23,7 @@ func Call[TFromRequest, TFromReply, TRpcReq, TRpcReply any](
 	}
 
 	// 调用RPC方法
-	rpcReply, err := rpcHandler(ctx, &rpcReq)
+	rpcReply, err := rpcHandler(ctx, &rpcReq, callOptions...)
 	if err != nil {
 		return nil, nil, err
 	}
