@@ -35,3 +35,18 @@ func Call[TFromRequest, TFromReply, TRpcReq, TRpcReply any](
 	}
 	return &reply, rpcReply, nil
 }
+
+// CallSame 通用转发方法(双方请求和响应结构是均为相同类型)
+func CallSame[TRequest, TReply any](
+	ctx context.Context,
+	req *TRequest,
+	rpcHandler func(ctx context.Context, rpcReq *TRequest, opts ...grpc.CallOption) (*TReply, error),
+	callOptions ...grpc.CallOption,
+) (*TReply, error) {
+	// 调用RPC方法
+	rpcReply, err := rpcHandler(ctx, req, callOptions...)
+	if err != nil {
+		return nil, err
+	}
+	return rpcReply, nil
+}
